@@ -23,6 +23,9 @@
     <ClCompile Include="User.cpp">
       <Filter>User</Filter>
     </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">

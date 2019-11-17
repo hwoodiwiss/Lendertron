@@ -1,10 +1,12 @@
 #include "Application.h"
+#include "User.h"
 
 
 Application::Application()
 {
 
 }
+
 
 void Application::SetParams(int argc, char** argv)
 {
@@ -35,6 +37,7 @@ void Application::SetParams(int argc, char** argv)
 //Application Run takes on the role of main
 int Application::Run()
 {
+	User* objCurrentUser = nullptr;
 	//Load data from disk
 
 	//Main loop
