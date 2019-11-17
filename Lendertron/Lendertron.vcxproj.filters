@@ -1,42 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Application">
       <UniqueIdentifier>{bb27a2c9-bf1e-4e6d-9eed-85c4a9ed1f3c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="User">
+    <Filter Include="Data">
+      <UniqueIdentifier>{3f597af1-cf73-45c8-b4f2-fe3936907a8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Loan">
+      <UniqueIdentifier>{219a0d2a-d8a0-4c27-8140-3a7387a6475c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Customer">
+      <UniqueIdentifier>{1ec77520-edd8-4141-8b34-a0c20b20c58a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{17503a72-fe4a-462f-8be8-bb4a4774ec25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Menu">
+      <UniqueIdentifier>{d194ce23-f1b0-4aac-b1b8-7e7bfa647330}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\User">
       <UniqueIdentifier>{c8cfba25-09a6-4311-bbf0-6fe3622136fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Menu">
-      <UniqueIdentifier>{d194ce23-f1b0-4aac-b1b8-7e7bfa647330}</UniqueIdentifier>
+    <Filter Include="Application\Application">
+      <UniqueIdentifier>{3a7bf3e0-c630-4806-9f5b-0073bf53d142}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Application.cpp">
-      <Filter>Application</Filter>
-    </ClCompile>
     <ClCompile Include="User.cpp">
-      <Filter>User</Filter>
+      <Filter>Application\User</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
-      <Filter>Menu</Filter>
+      <Filter>Application\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="Loan.cpp">
+      <Filter>Data\Loan</Filter>
+    </ClCompile>
+    <ClCompile Include="Customer.cpp">
+      <Filter>Data\Customer</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Application\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="DataLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h">
-      <Filter>Application</Filter>
-    </ClInclude>
     <ClInclude Include="User.h">
-      <Filter>User</Filter>
+      <Filter>Application\User</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
-      <Filter>Menu</Filter>
+      <Filter>Application\Menu</Filter>
     </ClInclude>
     <ClInclude Include="CommonIncludes.h" />
+    <ClInclude Include="Loan.h">
+      <Filter>Data\Loan</Filter>
+    </ClInclude>
+    <ClInclude Include="Customer.h">
+      <Filter>Data\Customer</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Application\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="DataLoader.h" />
   </ItemGroup>
 </Project>

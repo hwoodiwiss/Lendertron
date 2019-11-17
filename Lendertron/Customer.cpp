@@ -2,13 +2,13 @@
 
 Customer* Customer::Create(string FirstName, string LastName, byte Age, double AnnualIncome)
 {
-	string AccountNumber
-	return Customer();
+	string AccountNumber;
+	return new Customer();
 }
 
 Customer* Customer::Find(string AccountNumber, string FirstName, string LastName)
 {
-	return Customer();
+	return new Customer();
 }
 
 Customer::Customer(string AccountNumber, string FirstName, string LastName, byte Age, double AnnualIncome) 
