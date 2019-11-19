@@ -25,6 +25,12 @@
     <Filter Include="Application\Application">
       <UniqueIdentifier>{3a7bf3e0-c630-4806-9f5b-0073bf53d142}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data\LoanType">
+      <UniqueIdentifier>{a0fce099-8314-44a1-9240-4412e65f2217}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\InputValidation">
+      <UniqueIdentifier>{4a74a47f-0a10-44fa-89d4-0fd58b53a941}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -43,7 +49,10 @@
     <ClCompile Include="Application.cpp">
       <Filter>Application\Application</Filter>
     </ClCompile>
-    <ClCompile Include="DataLoader.cpp" />
+    <ClCompile Include="LoanType.cpp">
+      <Filter>Data\LoanType</Filter>
+    </ClCompile>
+    <ClCompile Include="InputValidation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -62,6 +71,9 @@
     <ClInclude Include="Application.h">
       <Filter>Application\Application</Filter>
     </ClInclude>
-    <ClInclude Include="DataLoader.h" />
+    <ClInclude Include="LoanType.h">
+      <Filter>Data\LoanType</Filter>
+    </ClInclude>
+    <ClInclude Include="InputValidation.h" />
   </ItemGroup>
 </Project>

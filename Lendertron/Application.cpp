@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "User.h"
+#include "MenuManager.h"
 
 
 Application::Application()
@@ -37,8 +38,7 @@ void Application::SetParams(int argc, char** argv)
 //Application Run takes on the role of main
 int Application::Run()
 {
-	User* objCurrentUser = nullptr;
-	//Load data from disk
+	SetupApplication();
 
 	//Main loop
 	while (m_Running)
@@ -47,4 +47,13 @@ int Application::Run()
 	}
 
 	return 0;
+}
+
+bool Application::SetupApplication()
+{
+	MenuItem Item;
+	Item.ItemText = "";
+	Item.ItemCallback = [] {
+		
+	};
 }

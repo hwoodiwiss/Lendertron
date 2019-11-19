@@ -7,7 +7,10 @@ public:
 	static Customer* Create(string FirstName, string LastName, byte Age, double AnnualIncome);
 	static Customer* Find(string AccountNumber, string FirstName, string LastName);
 
+	byte GetAge() { return m_Age; }
+	double GetIncome() { return m_AnnualIncome; }
 private:
+	Customer() {}
 	Customer(string AccountNumber, string FirstName, string LastName, byte Age, double AnnualIncome);
 	bool IsAccountNumberUnique(string AccountNumber);
 
