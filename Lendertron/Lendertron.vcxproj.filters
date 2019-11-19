@@ -16,9 +16,6 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{17503a72-fe4a-462f-8be8-bb4a4774ec25}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Application\Menu">
-      <UniqueIdentifier>{d194ce23-f1b0-4aac-b1b8-7e7bfa647330}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Application\User">
       <UniqueIdentifier>{c8cfba25-09a6-4311-bbf0-6fe3622136fa}</UniqueIdentifier>
     </Filter>
@@ -31,14 +28,17 @@
     <Filter Include="Utils\InputValidation">
       <UniqueIdentifier>{4a74a47f-0a10-44fa-89d4-0fd58b53a941}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Application\Menu">
+      <UniqueIdentifier>{d7cfeb1b-2a73-476c-aba8-e1299e62b301}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\LoanCriteria">
+      <UniqueIdentifier>{9e273df8-2028-402f-ab49-918d20811803}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="User.cpp">
       <Filter>Application\User</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Application\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Loan.cpp">
       <Filter>Data\Loan</Filter>
@@ -52,14 +52,22 @@
     <ClCompile Include="LoanType.cpp">
       <Filter>Data\LoanType</Filter>
     </ClCompile>
-    <ClCompile Include="InputValidation.cpp" />
+    <ClCompile Include="InputValidation.cpp">
+      <Filter>Utils\InputValidation</Filter>
+    </ClCompile>
+    <ClCompile Include="AgeCriteria.cpp">
+      <Filter>Data\LoanCriteria</Filter>
+    </ClCompile>
+    <ClCompile Include="FinanceCriteria.cpp">
+      <Filter>Data\LoanCriteria</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuManager.cpp">
+      <Filter>Application\Application</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
       <Filter>Application\User</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Application\Menu</Filter>
     </ClInclude>
     <ClInclude Include="CommonIncludes.h" />
     <ClInclude Include="Loan.h">
@@ -74,6 +82,23 @@
     <ClInclude Include="LoanType.h">
       <Filter>Data\LoanType</Filter>
     </ClInclude>
-    <ClInclude Include="InputValidation.h" />
+    <ClInclude Include="InputValidation.h">
+      <Filter>Utils\InputValidation</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuManager.h">
+      <Filter>Application\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Application\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="AgeCriteria.h">
+      <Filter>Data\LoanCriteria</Filter>
+    </ClInclude>
+    <ClInclude Include="FinanceCriteria.h">
+      <Filter>Data\LoanCriteria</Filter>
+    </ClInclude>
+    <ClInclude Include="ILoanCriteria.h">
+      <Filter>Data\LoanCriteria</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

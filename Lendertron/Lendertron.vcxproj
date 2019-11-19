@@ -72,23 +72,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AgeCriteria.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="FinanceCriteria.cpp" />
     <ClCompile Include="InputValidation.cpp" />
     <ClCompile Include="Loan.cpp" />
     <ClCompile Include="LoanType.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuManager.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AgeCriteria.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="CommonIncludes.h" />
     <ClInclude Include="Customer.h" />
+    <ClInclude Include="FinanceCriteria.h" />
     <ClInclude Include="InputValidation.h" />
     <ClInclude Include="Loan.h" />
+    <ClInclude Include="ILoanCriteria.h" />
     <ClInclude Include="LoanType.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuManager.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
