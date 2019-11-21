@@ -1,7 +1,8 @@
 #pragma once
 #include "Customer.h"
 
-//Abstract interface to various types of criteria cheking
+//Abstract interface to various types of criteria checking
+//Technically Critereon is the singular for Criteria, bu it looks wrong to me
 class ILoanCriteria
 {
 public:

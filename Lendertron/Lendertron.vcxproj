@@ -75,6 +75,7 @@
     <ClCompile Include="AgeCriteria.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="FinanceCriteria.cpp" />
     <ClCompile Include="InputValidation.cpp" />
     <ClCompile Include="Loan.cpp" />
@@ -82,12 +83,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuManager.cpp" />
     <ClCompile Include="User.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AgeCriteria.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="CommonIncludes.h" />
     <ClInclude Include="Customer.h" />
+    <ClInclude Include="DataManager.h" />
     <ClInclude Include="FinanceCriteria.h" />
     <ClInclude Include="InputValidation.h" />
     <ClInclude Include="Loan.h" />
@@ -96,6 +99,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuManager.h" />
     <ClInclude Include="User.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

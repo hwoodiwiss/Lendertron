@@ -5,6 +5,9 @@
 #include <map>
 #include <filesystem>
 
+#include <windows.h>
+#define WIN32_LEAN_AND_MEAN
+
 typedef char byte;
 
 //Types from standard lib that will be used a lot, so will be wanting to use without std::

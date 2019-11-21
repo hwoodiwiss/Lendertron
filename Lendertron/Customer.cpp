@@ -2,17 +2,13 @@
 
 Customer* Customer::Create(string FirstName, string LastName, byte Age, double AnnualIncome)
 {
-	string AccountNumber;
-	return new Customer();
+	GUID AccountNumber;
+	CoCreateGuid(&AccountNumber);
+	return new Customer(AccountNumber, FirstName, LastName, Age, AnnualIncome);
 }
 
-Customer* Customer::Find(string AccountNumber, string FirstName, string LastName)
-{
-	return new Customer();
-}
-
-Customer::Customer(string AccountNumber, string FirstName, string LastName, byte Age, double AnnualIncome) 
-	: m_AccountNumber(AccountNumber), m_FirstName(FirstName), m_LastName(LastName), m_Age(Age), m_AnnualIncome(AnnualIncome)
+Customer::Customer(GUID Id, string FirstName, string LastName, byte Age, double AnnualIncome) 
+	: m_Id(Id), m_FirstName(FirstName), m_LastName(LastName), m_Age(Age), m_AnnualIncome(AnnualIncome)
 {
 }
 
