@@ -1,11 +1,17 @@
 #include "Application.h"
 #include "User.h"
 #include "MenuManager.h"
+#include "DataManager.h"
+#include <fstream>
 
+
+using ifstream = std::ifstream;
+using ofstream = std::ofstream;
+namespace fs = std::filesystem;
 
 Application::Application()
 {
-
+	m_DataManager = 0;
 }
 
 
@@ -51,9 +57,32 @@ int Application::Run()
 
 bool Application::SetupApplication()
 {
-	MenuItem Item;
-	Item.ItemText = "";
-	Item.ItemCallback = [] {
-		
-	};
+	m_DataManager = std::shared_ptr<DataManager>(new DataManager());
+
+	//Load application data from the filesystem
+	std::error_code relPathError;
+	auto curr = fs::current_path();
+	fs::path pathDataStore = fs::absolute(fs::path(L".\\Lendertron.data"), relPathError);
+
+	if (std::filesystem::exists(pathDataStore))
+	{
+		ifstream inStream(pathDataStore.c_str(), std::ios::in | std::ios::binary);
+		inStream >> *m_DataManager;
+		inStream.close();
+	}
+	else
+	{
+		ofstream outStream(pathDataStore.c_str(), std::ios::binary);
+		outStream.close();
+	}
+
+	Customer* customer = Customer::Create("Hugo", "Woodiwiss", 24, 26630.0f);
+	m_DataManager->AddCustomer(customer);
+
+	ofstream outStream(pathDataStore.c_str(), std::ios::out | std::ios::trunc | std::ios::binary);
+
+	outStream << *m_DataManager;
+	outStream.close();
+
+	return true;
 }

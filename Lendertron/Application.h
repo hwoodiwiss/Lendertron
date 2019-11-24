@@ -1,6 +1,6 @@
 #pragma once
-
 #include "CommonIncludes.h"
+#include "DataManager.h"
 #include "User.h"
 
 //Singleton application class to allow the core application object to be accessed throughout
@@ -18,5 +18,6 @@ private:
 	map<int, string> m_Params;
 	map<string, string> m_Options;
 	bool m_Running;
+	std::shared_ptr<DataManager> m_DataManager;
 	
 };

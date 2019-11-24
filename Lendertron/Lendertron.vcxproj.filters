@@ -37,7 +37,7 @@
     <Filter Include="Data\DataManager">
       <UniqueIdentifier>{344e3833-c82e-4ff5-82fb-af904328ab43}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utils\Persistence">
+    <Filter Include="Utils\Serializaition">
       <UniqueIdentifier>{cb48ff6d-2b46-4b0c-84c7-7325f32e047b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -73,6 +73,9 @@
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="DataManager.cpp">
       <Filter>Data\DataManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SerialiazablGuid.cpp">
+      <Filter>Utils\Serializaition</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +118,15 @@
     </ClInclude>
     <ClInclude Include="DataManager.h">
       <Filter>Data\DataManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ISerializable.h">
+      <Filter>Utils\Serializaition</Filter>
+    </ClInclude>
+    <ClInclude Include="SerialiazablGuid.h">
+      <Filter>Utils\Serializaition</Filter>
+    </ClInclude>
+    <ClInclude Include="SerializableVector.h">
+      <Filter>Utils\Serializaition</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

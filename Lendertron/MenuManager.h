@@ -2,7 +2,7 @@
 #include "CommonIncludes.h"
 #include "Menu.h"
 
-static class MenuManager
+class MenuManager
 {
 public:
 	static MenuManager* GetInstance();
@@ -11,7 +11,7 @@ public:
 	Menu* GetCurrent();
 
 private:
-	MenuManager();
+	MenuManager() {};
 
 	static MenuManager* s_Instance;
 	Menu* m_CurrentMenu;

@@ -6,7 +6,7 @@ bool LoanType::IsEligible(Customer* pCustObj)
 	for (auto Critereon : m_Criteria)
 	{
 		//If any of the Critereon return false, the customer is not eligible
-		if (!Critereon.Evaluate(pCustObj))
+		if (!Critereon->Evaluate(pCustObj))
 			return false;
 	}
 

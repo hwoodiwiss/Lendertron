@@ -21,3 +21,15 @@ Loan* Loan::NewLoan(LoanType* pLoanType, int Duration, double Value)
 
 	return nullptr;
 }
+
+std::ostream& Loan::Serialize(std::ostream& out)
+{
+	out << m_Id << m_TypeName << m_Duration << m_Interest << m_Value << m_CustomerId;
+	return out;
+}
+
+std::istream& Loan::Deserialize(std::istream& in)
+{
+	in >> m_Id >> m_TypeName >> m_Duration >> m_Interest >> m_Value >> m_CustomerId;
+	return in;
+}

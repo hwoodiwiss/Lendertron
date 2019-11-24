@@ -1,5 +1,7 @@
 #include "MenuManager.h"
 
+MenuManager* MenuManager::s_Instance;
+
 MenuManager* MenuManager::GetInstance()
 {
 	if (s_Instance == nullptr)

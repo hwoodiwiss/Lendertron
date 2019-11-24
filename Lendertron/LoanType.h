@@ -23,6 +23,6 @@ private:
 	//Interest for loans of this type
 	float m_Interest;
 	//List of criteria that customers must meet to be eligible for a loan of this type
-	vector<ILoanCriteria> m_Criteria;
+	vector<ILoanCriteria*> m_Criteria;
 };
 

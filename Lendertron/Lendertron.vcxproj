@@ -82,6 +82,7 @@
     <ClCompile Include="LoanType.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuManager.cpp" />
+    <ClCompile Include="SerialiazablGuid.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
@@ -93,11 +94,14 @@
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="FinanceCriteria.h" />
     <ClInclude Include="InputValidation.h" />
+    <ClInclude Include="ISerializable.h" />
     <ClInclude Include="Loan.h" />
     <ClInclude Include="ILoanCriteria.h" />
     <ClInclude Include="LoanType.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuManager.h" />
+    <ClInclude Include="SerialiazablGuid.h" />
+    <ClInclude Include="SerializableVector.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
