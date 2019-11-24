@@ -17,6 +17,7 @@ public:
 	SerializableGuid& operator=(const GUID& rGuid);
 
 	GUID AsGuid() { return m_InternalGuid; }
+	std::string ToString();
 
 	std::ostream& Serialize(std::ostream& out);
 	std::istream& Deserialize(std::istream& in);

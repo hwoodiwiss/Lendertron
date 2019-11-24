@@ -13,7 +13,7 @@ public:
 	std::ostream& Serialize(std::ostream& out)
 	{
 		int size = this->size();
-		out << size;
+		out.write(reinterpret_cast<char*>(&size), sizeof(int));
 		for (int i = 0; i != size; i++)
 		{
 			out << *(this->at(i));
@@ -26,7 +26,7 @@ public:
 	{
 		//This is by no means the most efficient way of doing this, there will be overhead for each add call, especially on size boundaries
 		int numElements;
-		in >> numElements;
+		in.read(reinterpret_cast<char*>(&numElements), sizeof(int));
 		for (int index = 0; index < numElements; index++)
 		{
 			T* currItem = new T();

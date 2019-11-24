@@ -17,5 +17,22 @@ public:
 	{
 		return inObj.Deserialize(is);
 	}
+	
+protected:
+	inline std::string InStreamToString(std::istream& in)
+	{
+		std::streampos prevPos = in.tellg();
+		char curr;
+		int strCnt = 0;
+		do
+		{
+			strCnt++;
+			in.get(curr);
+		} while (curr != '\0');
+		in.seekg(prevPos);
+		char* streamString = new char[strCnt];
+		in.read(streamString, strCnt);
+		return std::string(streamString);
+	}
 
 };

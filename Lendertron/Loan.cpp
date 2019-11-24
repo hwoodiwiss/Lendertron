@@ -24,12 +24,22 @@ Loan* Loan::NewLoan(LoanType* pLoanType, int Duration, double Value)
 
 std::ostream& Loan::Serialize(std::ostream& out)
 {
-	out << m_Id << m_TypeName << m_Duration << m_Interest << m_Value << m_CustomerId;
+	out << m_Id;
+	out.write(m_TypeName.data(), sizeof(char) * m_TypeName.length() + 1);
+	out.write(reinterpret_cast<char*>(&m_Duration), sizeof(int));
+	out.write(reinterpret_cast<char*>(&m_Interest), sizeof(float));
+	out.write(reinterpret_cast<char*>(&m_Value), sizeof(double));
+	out << m_CustomerId;
 	return out;
 }
 
 std::istream& Loan::Deserialize(std::istream& in)
 {
-	in >> m_Id >> m_TypeName >> m_Duration >> m_Interest >> m_Value >> m_CustomerId;
+	in >> m_Id;
+	m_TypeName = InStreamToString(in);
+	in.read(reinterpret_cast<char*>(&m_Duration), sizeof(int));
+	in.read(reinterpret_cast<char*>(&m_Interest), sizeof(float));
+	in.read(reinterpret_cast<char*>(&m_Value), sizeof(double));
+	in >> m_CustomerId;
 	return in;
 }

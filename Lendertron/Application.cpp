@@ -77,6 +77,8 @@ bool Application::SetupApplication()
 	}
 
 	Customer* customer = Customer::Create("Hugo", "Woodiwiss", 24, 26630.0f);
+	SerializableGuid id = customer->GetId();
+	string idString = id.ToString();
 	m_DataManager->AddCustomer(customer);
 
 	ofstream outStream(pathDataStore.c_str(), std::ios::out | std::ios::trunc | std::ios::binary);
