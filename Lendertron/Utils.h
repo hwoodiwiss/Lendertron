@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-static class Utils
+class Utils
 {
 public:
 	static std::string GetRandomNumString(int length);

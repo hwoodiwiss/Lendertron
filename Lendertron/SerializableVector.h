@@ -12,9 +12,9 @@ public:
 
 	std::ostream& Serialize(std::ostream& out)
 	{
-		int size = this->size();
-		out.write(reinterpret_cast<char*>(&size), sizeof(int));
-		for (int i = 0; i != size; i++)
+		size_t size = this->size();
+		out.write(reinterpret_cast<char*>(&size), sizeof(size_t));
+		for (size_t i = 0; i != size; i++)
 		{
 			out << *(this->at(i));
 		}
@@ -24,10 +24,10 @@ public:
 
 	std::istream& Deserialize(std::istream& in)
 	{
-		//This is by no means the most efficient way of doing this, there will be overhead for each add call, especially on size boundaries
-		int numElements;
-		in.read(reinterpret_cast<char*>(&numElements), sizeof(int));
-		for (int index = 0; index < numElements; index++)
+		//This is by no means the most efficient way of doing this, there will be overhead for each push_back, especially on size boundaries
+		size_t numElements;
+		in.read(reinterpret_cast<char*>(&numElements), sizeof(size_t));
+		for (size_t index = 0; index < numElements; index++)
 		{
 			T* currItem = new T();
 			in >> *currItem;

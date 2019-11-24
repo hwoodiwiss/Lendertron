@@ -2,26 +2,25 @@
 
 std::ostream& User::Serialize(std::ostream& outStream)
 {
-	outStream << m_Username << m_Password << m_AccessLevel;
+	outStream.write(m_Username.data(), sizeof(char) * m_Username.length() + 1);
+	outStream.write(m_Password.data(), sizeof(char) * m_Password.length() + 1);
+	outStream.write(reinterpret_cast<char*>(&m_AccessLevel), sizeof(UserAccessLevel));
 	return outStream;
 }
 
 std::istream& User::Deserialize(std::istream& inStream)
 {
-	inStream >> m_Username >> m_Password;// >> m_AccessLevel;
+	m_Username = InStreamToString(inStream);
+	m_Password = InStreamToString(inStream);
+	m_AccessLevel = UALFromInStream(inStream);
 	return inStream;
 }
 
-std::ostream& operator<<(std::ostream& os, const UserAccessLevel& eAccessLevel)
+UserAccessLevel User::UALFromInStream(std::istream& is)
 {
-	os << (int)eAccessLevel;
-	return os;
-}
-
-std::istream& operator>>(std::istream& is, UserAccessLevel& eAccessLevel)
-{
-	int inVal;
-	is >> inVal;
+	UserAccessLevel eAccessLevel;
+	int inVal = 0;
+	is.read(reinterpret_cast<char*>(&inVal), sizeof(UserAccessLevel));
 	if (inVal > 0 && inVal <= 2)
 	{
 		eAccessLevel = static_cast<UserAccessLevel>(inVal);
@@ -30,5 +29,5 @@ std::istream& operator>>(std::istream& is, UserAccessLevel& eAccessLevel)
 	{
 		eAccessLevel = AL_NONE;
 	}
-	return is;
+	return eAccessLevel;
 }

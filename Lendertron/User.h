@@ -10,24 +10,21 @@ enum UserAccessLevel
 	AL_ADMIN = 2
 };
 
-class User : ISerializable
+class User : public ISerializable
 {
 public:
 	//Default constructor required to be ISerialiazable
 	User() : m_AccessLevel(AL_NONE) {}
 
+	string GetUsername() { return m_Username; }
 	UserAccessLevel GetAccessLevel() { return m_AccessLevel; };
 
 	std::ostream& Serialize(std::ostream& outStream);
 	std::istream& Deserialize(std::istream& inStream);
 
-
-	//Friend functions for serializing UserAccessLevel
-	friend std::ostream& operator<<(std::ostream& os, const UserAccessLevel& eAccessLevel);
-	friend std::istream& operator>>(std::istream& is, UserAccessLevel& eAccessLevel);
-
-
 private:
+	UserAccessLevel UALFromInStream(std::istream& is);
+
 	string m_Username;
 	string m_Password;
 	UserAccessLevel m_AccessLevel;

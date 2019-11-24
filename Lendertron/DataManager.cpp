@@ -1,8 +1,35 @@
 #include "DataManager.h"
 
-vector<Customer*> DataManager::FindCustomers(string FirstName, string LastName)
+User* DataManager::FindUser(string UserName)
 {
-	return vector<Customer*>();
+	User* FoundUser = nullptr;
+	auto UserIterator = std::find_if(m_Users.begin(), m_Users.end(), [UserName](User* pUser)->bool { return pUser->GetUsername() == UserName; });
+	if (UserIterator == m_Users.end())
+		return nullptr;
+
+	return *UserIterator;
+}
+
+vector<Customer*> DataManager::SearchCustomers(string FirstName, string LastName)
+{
+	//Transform the names to lowercase for easier comparison
+	std::transform(FirstName.begin(), FirstName.end(), FirstName.begin(), ::tolower);
+	std::transform(LastName.begin(), LastName.end(), LastName.begin(), ::tolower);
+
+	vector<Customer*> matchedCustomers;
+	auto pMatchedCustomers = &matchedCustomers;
+	std::for_each(m_Customers.begin(), m_Customers.end(), [FirstName, LastName, pMatchedCustomers](Customer* pCustomer)->void {
+		string CustFName = string(pCustomer->GetFirstName());
+		string CustLName = string(pCustomer->GetLastName());
+		std::transform(CustFName.begin(), CustFName.end(), CustFName.begin(), ::tolower);
+		std::transform(CustLName.begin(), CustLName.end(), CustLName.begin(), ::tolower);
+		if (CustFName == FirstName || CustLName == LastName)
+		{
+			pMatchedCustomers->push_back(pCustomer);
+		}
+	});
+
+	return matchedCustomers;
 }
 
 vector<Loan*> DataManager::GetCustomerLoans(GUID CustomerId)
@@ -73,12 +100,12 @@ void DataManager::AddCustomer(Customer* pNewCustomerObj)
 
 std::ostream& DataManager::Serialize(std::ostream& os)
 {
-	os << m_Loans << m_Customers;
+	os << m_Loans << m_Customers << m_Users;
 	return os;
 }
 
 std::istream& DataManager::Deserialize(std::istream& is)
 {
-	is >> m_Loans >> m_Customers;
+	is >> m_Loans >> m_Customers >> m_Users;
 	return is;
 }
