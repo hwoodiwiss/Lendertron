@@ -1,10 +1,10 @@
 #include "Customer.h"
 
-Customer* Customer::Create(string FirstName, string LastName, byte Age, double AnnualIncome)
+shared_ptr<Customer> Customer::Create(string FirstName, string LastName, byte Age, double AnnualIncome)
 {
 	GUID AccountNumber;
 	CoCreateGuid(&AccountNumber);
-	return new Customer(AccountNumber, FirstName, LastName, Age, AnnualIncome);
+	return shared_ptr<Customer>(new Customer(AccountNumber, FirstName, LastName, Age, AnnualIncome));
 }
 
 std::ostream& Customer::Serialize(std::ostream& out)

@@ -25,12 +25,6 @@
     <Filter Include="Data\LoanType">
       <UniqueIdentifier>{a0fce099-8314-44a1-9240-4412e65f2217}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utils\InputValidation">
-      <UniqueIdentifier>{4a74a47f-0a10-44fa-89d4-0fd58b53a941}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Application\Menu">
-      <UniqueIdentifier>{d7cfeb1b-2a73-476c-aba8-e1299e62b301}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Data\LoanCriteria">
       <UniqueIdentifier>{9e273df8-2028-402f-ab49-918d20811803}</UniqueIdentifier>
     </Filter>
@@ -39,6 +33,39 @@
     </Filter>
     <Filter Include="Utils\Serializaition">
       <UniqueIdentifier>{cb48ff6d-2b46-4b0c-84c7-7325f32e047b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{ff5abbe8-bf35-4cb9-aff5-a10075ea501e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\MenuManager">
+      <UniqueIdentifier>{8863cada-334a-49f6-80a7-746936675f70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Pages">
+      <UniqueIdentifier>{d7cfeb1b-2a73-476c-aba8-e1299e62b301}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Pages\LoginPage">
+      <UniqueIdentifier>{44cec3cf-8480-4784-a7ce-aa47425c1353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Pages\WelcomePage">
+      <UniqueIdentifier>{7b95e06b-44de-43f4-b46c-86cb2f3b5ed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Pages\MainPage">
+      <UniqueIdentifier>{1ecb0e45-c096-49b5-b80f-516614276012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Pages\LogoutPage">
+      <UniqueIdentifier>{e40f59de-8142-4ba6-9c12-591b2e6366cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Pages\CustomerPage">
+      <UniqueIdentifier>{097abdc6-6889-4f50-94f2-925a458cbfcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Pages\UserPage">
+      <UniqueIdentifier>{a53c4fd3-0762-49e9-88ae-8f93c19891b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Pages\LoanPage">
+      <UniqueIdentifier>{85d92e1a-b7e5-4e22-a8df-399393fb707b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Input">
+      <UniqueIdentifier>{4a74a47f-0a10-44fa-89d4-0fd58b53a941}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,31 +85,53 @@
     <ClCompile Include="LoanType.cpp">
       <Filter>Data\LoanType</Filter>
     </ClCompile>
-    <ClCompile Include="InputValidation.cpp">
-      <Filter>Utils\InputValidation</Filter>
-    </ClCompile>
     <ClCompile Include="AgeCriteria.cpp">
       <Filter>Data\LoanCriteria</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuManager.cpp">
-      <Filter>Application\Application</Filter>
     </ClCompile>
     <ClCompile Include="FinanceCriteria.cpp">
       <Filter>Data\LoanCriteria</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="DataManager.cpp">
       <Filter>Data\DataManager</Filter>
     </ClCompile>
     <ClCompile Include="SerialiazablGuid.cpp">
       <Filter>Utils\Serializaition</Filter>
     </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Utils\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="PageManager.cpp">
+      <Filter>UI\MenuManager</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginPage.cpp">
+      <Filter>UI\Pages\LoginPage</Filter>
+    </ClCompile>
+    <ClCompile Include="WelcomePage.cpp">
+      <Filter>UI\Pages\WelcomePage</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPage.cpp">
+      <Filter>UI\Pages\MainPage</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomerPage.cpp">
+      <Filter>UI\Pages\CustomerPage</Filter>
+    </ClCompile>
+    <ClCompile Include="UserPage.cpp">
+      <Filter>UI\Pages\UserPage</Filter>
+    </ClCompile>
+    <ClCompile Include="LoanPage.cpp">
+      <Filter>UI\Pages\LoanPage</Filter>
+    </ClCompile>
+    <ClCompile Include="Page.cpp">
+      <Filter>UI\Pages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
       <Filter>Application\User</Filter>
     </ClInclude>
-    <ClInclude Include="CommonIncludes.h" />
     <ClInclude Include="Loan.h">
       <Filter>Data\Loan</Filter>
     </ClInclude>
@@ -94,15 +143,6 @@
     </ClInclude>
     <ClInclude Include="LoanType.h">
       <Filter>Data\LoanType</Filter>
-    </ClInclude>
-    <ClInclude Include="InputValidation.h">
-      <Filter>Utils\InputValidation</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuManager.h">
-      <Filter>Application\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Application\Menu</Filter>
     </ClInclude>
     <ClInclude Include="AgeCriteria.h">
       <Filter>Data\LoanCriteria</Filter>
@@ -127,6 +167,37 @@
     </ClInclude>
     <ClInclude Include="SerializableVector.h">
       <Filter>Utils\Serializaition</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Utils\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="Page.h">
+      <Filter>UI\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="PageManager.h">
+      <Filter>UI\MenuManager</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginPage.h">
+      <Filter>UI\Pages\LoginPage</Filter>
+    </ClInclude>
+    <ClInclude Include="WelcomePage.h">
+      <Filter>UI\Pages\WelcomePage</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPage.h">
+      <Filter>UI\Pages\MainPage</Filter>
+    </ClInclude>
+    <ClInclude Include="LogoutPage.h">
+      <Filter>UI\Pages\LogoutPage</Filter>
+    </ClInclude>
+    <ClInclude Include="LoanPage.h">
+      <Filter>UI\Pages\LoanPage</Filter>
+    </ClInclude>
+    <ClInclude Include="UserPage.h">
+      <Filter>UI\Pages\UserPage</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomerPage.h">
+      <Filter>UI\Pages\CustomerPage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

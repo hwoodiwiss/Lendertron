@@ -7,5 +7,5 @@ class ILoanCriteria
 {
 public:
 	//The action criteria cheking function, pure virtual function has to be overriden in all derived classes
-	virtual bool Evaluate(Customer*) = 0;
+	virtual bool Evaluate(shared_ptr<Customer>) = 0;
 };

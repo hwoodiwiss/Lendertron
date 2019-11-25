@@ -4,7 +4,7 @@ FinanceCriteria::FinanceCriteria(double minIncome) : m_MinIncome(minIncome)
 {
 }
 
-bool FinanceCriteria::Evaluate(Customer* pCustObj)
+bool FinanceCriteria::Evaluate(shared_ptr<Customer> pCustObj)
 {
 	return pCustObj->GetIncome() >= m_MinIncome;
 }

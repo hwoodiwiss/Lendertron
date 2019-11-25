@@ -1,9 +1,9 @@
 #pragma once
-#include "CommonIncludes.h"
+#include "Common.h"
 #include "DataManager.h"
+#include "PageManager.h"
 #include "User.h"
 
-//Singleton application class to allow the core application object to be accessed throughout
 class Application
 {
 public:
@@ -13,11 +13,14 @@ public:
 
 private:
 
-	bool SetupApplication();
+	bool LoadDataStore();
+	void SaveDataStore();
+	void SetupLoanTypes();
+	void SetupPages();
 
 	map<int, string> m_Params;
 	map<string, string> m_Options;
-	bool m_Running;
 	std::shared_ptr<DataManager> m_DataManager;
-	
+	std::unique_ptr<PageManager> m_PageManager;
+
 };

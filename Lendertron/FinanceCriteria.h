@@ -5,7 +5,9 @@ class FinanceCriteria : public ILoanCriteria
 {
 public:
 	FinanceCriteria(double minIncome);
-	bool Evaluate(Customer* pCustObj);
+	~FinanceCriteria() {}
+
+	bool Evaluate(shared_ptr<Customer> pCustObj);
 private:
 	double m_MinIncome;
 };

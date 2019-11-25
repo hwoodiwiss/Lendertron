@@ -1,5 +1,5 @@
 #pragma once
-#include "CommonIncludes.h"
+#include "Common.h"
 #include "LoanType.h"
 #include "ISerializable.h"
 
@@ -12,6 +12,12 @@ public:
 
 	GUID GetId() { return m_Id.AsGuid(); }
 	GUID GetCustomerId() { return m_CustomerId.AsGuid(); }
+
+	//Loan cost functions
+	double GetInterestAsDecimalPercent();
+	double GetSingleYearInterest();
+	double GetTotalInterest();
+	double GetTotalRepayable();
 
 	//Returns a new value, or a nullptr if the desired Duration is not valid for this loan type
 	static Loan* NewLoan(LoanType* pLoanType, int Duration, double Value);

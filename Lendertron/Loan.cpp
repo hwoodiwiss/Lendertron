@@ -10,12 +10,35 @@ void Loan::SetCustomer(GUID CustomerId)
 	m_CustomerId = CustomerId;
 }
 
+double Loan::GetInterestAsDecimalPercent()
+{
+	return m_Interest / 100;
+}
+
+double Loan::GetSingleYearInterest()
+{
+	return m_Value * GetInterestAsDecimalPercent();
+}
+
+double Loan::GetTotalInterest()
+{
+	return (GetSingleYearInterest() * (m_Duration / 12));
+}
+
+double Loan::GetTotalRepayable()
+{
+	return m_Value + GetTotalInterest();
+}
+
 Loan* Loan::NewLoan(LoanType* pLoanType, int Duration, double Value)
 {
 	if (pLoanType->GetMinDuration() <= Duration && pLoanType->GetMaxDuration() >= Duration)
 	{
 		GUID LoanId;
-		CoCreateGuid(&LoanId);
+		if (CoCreateGuid(&LoanId) != S_OK)
+		{
+			return nullptr;
+		}
 		return new Loan(LoanId, pLoanType->GetName(), Duration, pLoanType->GetInterestRate(), Value);
 	}
 

@@ -1,13 +1,15 @@
 #pragma once
-#include "CommonIncludes.h"
+#include "Common.h"
 #include "ILoanCriteria.h"
 
 
-class AgeCriteria : ILoanCriteria
+class AgeCriteria : public ILoanCriteria
 {
 public:
 	AgeCriteria(byte minAge);
-	bool Evaluate(Customer* pCustObj);
+	~AgeCriteria() {}
+
+	bool Evaluate(shared_ptr<Customer> pCustObj);
 private:
 	byte m_MinAge;
 };
