@@ -1,5 +1,6 @@
 #pragma once
 #include "Page.h"
+#include <vector>
 
 //Undefine winapi min macro, as it overrides std::numeric_limits<>::min()
 #ifdef min
@@ -33,6 +34,8 @@ private:
 
 	//Specific functionality for creating, confirming and storing a loan with links to the user
 	bool CreateCustomerLoan(shared_ptr<DataManager> appDataManager, LoanType CustLoanType);
+
+	void PrintLoanTable(std::vector<shared_ptr<Loan>> printLoans);
 
 	shared_ptr<Customer> m_CurrCustomer;
 };

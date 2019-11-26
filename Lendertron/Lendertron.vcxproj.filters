@@ -37,9 +37,6 @@
     <Filter Include="UI">
       <UniqueIdentifier>{ff5abbe8-bf35-4cb9-aff5-a10075ea501e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\MenuManager">
-      <UniqueIdentifier>{8863cada-334a-49f6-80a7-746936675f70}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI\Pages">
       <UniqueIdentifier>{d7cfeb1b-2a73-476c-aba8-e1299e62b301}</UniqueIdentifier>
     </Filter>
@@ -63,6 +60,9 @@
     </Filter>
     <Filter Include="Utils\Input">
       <UniqueIdentifier>{4a74a47f-0a10-44fa-89d4-0fd58b53a941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\PageManager">
+      <UniqueIdentifier>{8863cada-334a-49f6-80a7-746936675f70}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -98,7 +98,7 @@
       <Filter>Utils\Input</Filter>
     </ClCompile>
     <ClCompile Include="PageManager.cpp">
-      <Filter>UI\MenuManager</Filter>
+      <Filter>UI\PageManager</Filter>
     </ClCompile>
     <ClCompile Include="LoginPage.cpp">
       <Filter>UI\Pages\LoginPage</Filter>
@@ -164,7 +164,7 @@
       <Filter>UI\Pages</Filter>
     </ClInclude>
     <ClInclude Include="PageManager.h">
-      <Filter>UI\MenuManager</Filter>
+      <Filter>UI\PageManager</Filter>
     </ClInclude>
     <ClInclude Include="LoginPage.h">
       <Filter>UI\Pages\LoginPage</Filter>

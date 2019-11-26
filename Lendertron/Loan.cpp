@@ -62,6 +62,13 @@ string Loan::GetTotalRepayableString()
 	return ss.str();
 }
 
+string Loan::GetAprString()
+{
+	std::stringstream ss;
+	ss << std::setprecision(2) << std::fixed << m_Interest << "%";
+	return ss.str();
+}
+
 double Loan::GetInterestAsDecimalPercent()
 {
 	return m_Interest / 100;

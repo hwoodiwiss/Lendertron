@@ -51,6 +51,9 @@ string CustomerPage::Execute(string prevPage, shared_ptr<DataManager> appDataMan
 			break;
 		case 4:
 			userExit = true;
+			//Dispose the instance of the shared_ptr and explicitly sets it to nullptr
+			m_CurrCustomer.~shared_ptr();
+			m_CurrCustomer = nullptr;
 			break;
 		case 5:
 			return "Exit";
@@ -120,26 +123,7 @@ void CustomerPage::ExistingLoans(shared_ptr<DataManager> appDataManager)
 	//Gets list of loans for the current in-context customer
 	auto customerLoans = appDataManager->GetCustomerLoans(m_CurrCustomer->GetId().AsGuid());
 
-	//Print a table of the customers loans
-	cout << string(97, '_') << endl;
-	cout << "|" << std::left << std::setw(12) << std::setfill(' ') << "Loan";
-	cout << "|" << std::left << std::setw(10) << std::setfill(' ') << "Amount";
-	cout << "|" << std::left << std::setw(12) << std::setfill(' ') << "Duration";
-	cout << "|" << std::left << std::setw(20) << std::setfill(' ') << "APR For One Year";
-	cout << "|" << std::left << std::setw(20) << std::setfill(' ') << "APR For Duration";
-	cout << "|" << std::left << std::setw(16) << std::setfill(' ') << "Total Payable" << "|";
-
-	for (auto currLoan : customerLoans)
-	{
-		cout << endl << string(97, '_') << endl;
-		cout << "|" << std::left << std::setw(12) << std::setfill(' ') << currLoan->GetTypeName();
-		cout << "|" << std::left << std::setw(10) << std::setfill(' ') << currLoan->GetValueString();
-		cout << "|" << std::left << std::setw(12) << std::setfill(' ') << currLoan->GetDurationString();
-		cout << "|" << std::left << std::setw(20) << std::setfill(' ') << currLoan->GetSingleYearInterestString();
-		cout << "|" << std::left << std::setw(20) << std::setfill(' ') << currLoan->GetTotalInterestString();
-		cout << "|" << std::left << std::setw(16) << std::setfill(' ') << currLoan->GetTotalRepayableString() << "|";
-	}
-	cout << endl << string(97, '_') << endl << endl;
+	PrintLoanTable(customerLoans);
 }
 
 void CustomerPage::ChangeCustomer(shared_ptr<DataManager> appDataManager)
@@ -222,21 +206,7 @@ bool CustomerPage::CreateCustomerLoan(shared_ptr<DataManager> appDataManager, Lo
 
 	string userAccept = "";
 
-	cout << string(97, '_') << endl;
-	cout << "|" << std::left << std::setw(12) << std::setfill(' ') << "Loan";
-	cout << "|" << std::left << std::setw(10) << std::setfill(' ') << "Amount";
-	cout << "|" << std::left << std::setw(12) << std::setfill(' ') << "Duration";
-	cout << "|" << std::left << std::setw(20) << std::setfill(' ') << "APR For One Year";
-	cout << "|" << std::left << std::setw(20) << std::setfill(' ') << "APR For Duration";
-	cout << "|" << std::left << std::setw(16) << std::setfill(' ') << "Total Payable" << "|";
-	cout << endl << string(97, '_') << endl;
-	cout << "|" << std::left << std::setw(12) << std::setfill(' ') << newLoan->GetTypeName();
-	cout << "|" << std::left << std::setw(10) << std::setfill(' ') << newLoan->GetValueString();
-	cout << "|" << std::left << std::setw(12) << std::setfill(' ') << newLoan->GetDurationString();
-	cout << "|" << std::left << std::setw(20) << std::setfill(' ') << newLoan->GetSingleYearInterestString();
-	cout << "|" << std::left << std::setw(20) << std::setfill(' ') << newLoan->GetTotalInterestString();
-	cout << "|" << std::left << std::setw(16) << std::setfill(' ') << newLoan->GetTotalRepayableString() << "|";
-	cout << endl << string(97, '_') << endl << endl;	
+	PrintLoanTable(vector<shared_ptr<Loan>>{newLoan});
 
 	while ((userAccept != "y" && userAccept != "n") && !userCancel)
 	{
@@ -264,6 +234,33 @@ bool CustomerPage::CreateCustomerLoan(shared_ptr<DataManager> appDataManager, Lo
 	}
 
 	return false;
+}
+
+void CustomerPage::PrintLoanTable(std::vector<shared_ptr<Loan>> printLoans)
+{
+
+	//Print a table of the customers loans
+	cout << string(118, '_') << endl;
+	cout << "|" << std::left << std::setw(12) << std::setfill(' ') << "Loan";
+	cout << "|" << std::left << std::setw(10) << std::setfill(' ') << "Amount";
+	cout << "|" << std::left << std::setw(7) << std::setfill(' ') << "APR";
+	cout << "|" << std::left << std::setw(20) << std::setfill(' ') << "Duration";
+	cout << "|" << std::left << std::setw(23) << std::setfill(' ') << "Interest For One Year";
+	cout << "|" << std::left << std::setw(23) << std::setfill(' ') << "Interest For Duration";
+	cout << "|" << std::left << std::setw(16) << std::setfill(' ') << "Total Payable" << "|";
+
+	for (auto currLoan : printLoans)
+	{
+		cout << endl << string(118, '_') << endl;
+		cout << "|" << std::left << std::setw(12) << std::setfill(' ') << currLoan->GetTypeName();
+		cout << "|" << std::left << std::setw(10) << std::setfill(' ') << currLoan->GetValueString();
+		cout << "|" << std::left << std::setw(7) << std::setfill(' ') << currLoan->GetAprString();
+		cout << "|" << std::left << std::setw(20) << std::setfill(' ') << currLoan->GetDurationString();
+		cout << "|" << std::left << std::setw(23) << std::setfill(' ') << currLoan->GetSingleYearInterestString();
+		cout << "|" << std::left << std::setw(23) << std::setfill(' ') << currLoan->GetTotalInterestString();
+		cout << "|" << std::left << std::setw(16) << std::setfill(' ') << currLoan->GetTotalRepayableString() << "|";
+	}
+	cout << endl << string(118, '_') << endl << endl;
 }
 
 shared_ptr<Customer> CustomerPage::FindCustomer(shared_ptr<DataManager> appDataManager)

@@ -20,6 +20,7 @@ public:
 	string GetSingleYearInterestString();
 	string GetTotalInterestString();
 	string GetTotalRepayableString();
+	string GetAprString();
 
 	//Loan cost functions
 	double GetInterestAsDecimalPercent();
