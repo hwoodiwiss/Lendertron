@@ -7,6 +7,7 @@
 //Note that this converts the type to always be stored internally as shared pointers
 template<typename T> class SerializableVector : public std::vector<shared_ptr<T>>, public ISerializable
 {
+	//Fails compilation if this container is used for a class that does not inherit ISerializable
 	static_assert(std::is_base_of<ISerializable, T>::value, "T must inherit from ISerialiazable");
 public:
 	SerializableVector() : std::vector<shared_ptr<T>>() {}

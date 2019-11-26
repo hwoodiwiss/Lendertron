@@ -5,6 +5,7 @@
 class LoanType
 {
 public:
+	LoanType() {}
 	LoanType(string Name, int MinDuration, int MaxDuration, float Interest, double MaxValue) : m_Name(Name), m_DurationMin(MinDuration), m_DurationMax(MaxDuration), m_Interest(Interest), m_MaxValue(MaxValue) {}
 
 	void AddCriteria(shared_ptr<ILoanCriteria> LoanCriteria);

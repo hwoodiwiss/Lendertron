@@ -12,7 +12,6 @@
 #include "MainPage.h"
 #include "LogoutPage.h"
 #include "CustomerPage.h"
-#include "LoanPage.h"
 #include "UserPage.h"
 
 #include <fstream>
@@ -28,7 +27,7 @@ namespace fs = std::filesystem;
 
 Application::Application()
 {
-	m_DataManager = 0;
+	m_DataManager = nullptr;
 }
 
 
@@ -38,6 +37,7 @@ void Application::SetParams(int argc, char** argv)
 	{
 		string fullParam = string(argv[i]);
 
+		//Pushes the raw parameter string to the parameters vector
 		m_Params.insert(std::pair<int, string>(i, fullParam));
 
 		size_t eqIndex = fullParam.find('=');
@@ -53,6 +53,7 @@ void Application::SetParams(int argc, char** argv)
 		//Specify Ui64 to surpress "Potential overflow" warning. Honestly overkill.
 		string optValue = fullParam.substr(eqIndex + 1Ui64);
 
+		//Push option key-value pair to the options map
 		m_Options.insert(std::pair<string, string>(optName, optValue));
 
 	}
@@ -61,6 +62,7 @@ void Application::SetParams(int argc, char** argv)
 //Application Run takes on the role of main
 int Application::Run()
 {
+	//Initialise data and page managers
 	m_DataManager = shared_ptr<DataManager>(new DataManager());
 	m_PageManager = unique_ptr<PageManager>(new PageManager());
 	shared_ptr<User> appUser = nullptr;
@@ -79,17 +81,30 @@ int Application::Run()
 	//Setup application pages
 	SetupPages();
 
+	//Gets the welcome page from the page manager, this is the entrypoint page to the core systems pages
 	shared_ptr<Page> currPageObj = m_PageManager->GetPage("Welcome");
+	
+	//Vars to store the names of the next and previous pages
 	string nextPage;
 	string prevPage = "";
 	while (currPageObj != nullptr)
 	{
+		//Temporary storage for next page so that we can assign it to prev page after executing the next page
+		//This is necesary as the prevPage is used to gave an avenue to navigate "back" in a page
 		string prevNextPage = nextPage;
+
+		//Execute the current page and store the result in next page
 		nextPage = currPageObj->ExecutePage(prevPage, m_DataManager, appUser);
+
+		//Set prevPage to the value of prevNextPage, for use next iteration
 		prevPage = prevNextPage;
+
+		//Set the current page object to the page with the name that was returned from executing the previous page
+		//Will return nullptr if no page is found or if nextPage is empty
 		currPageObj = m_PageManager->GetPage(nextPage);
 	}
 
+	//After the core page loop ends, store contents of the data manager back to disk
 	SaveDataStore();
 
 	return 0;
@@ -163,5 +178,4 @@ void Application::SetupPages()
 	m_PageManager->AddPage("Main", shared_ptr<Page>(new MainPage()));
 	m_PageManager->AddPage("User", shared_ptr<Page>(new UserPage()));
 	m_PageManager->AddPage("Customer", shared_ptr<Page>(new CustomerPage()));
-	m_PageManager->AddPage("Loan", shared_ptr<Page>(new LoanPage()));
 }

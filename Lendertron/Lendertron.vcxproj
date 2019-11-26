@@ -80,7 +80,6 @@
     <ClCompile Include="FinanceCriteria.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Loan.cpp" />
-    <ClCompile Include="LoanPage.cpp" />
     <ClCompile Include="LoanType.cpp" />
     <ClCompile Include="LoginPage.cpp" />
     <ClCompile Include="main.cpp" />
@@ -91,7 +90,6 @@
     <ClCompile Include="Page.cpp" />
     <ClCompile Include="SerialiazablGuid.cpp" />
     <ClCompile Include="User.cpp" />
-    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AgeCriteria.h" />
@@ -105,7 +103,6 @@
     <ClInclude Include="ISerializable.h" />
     <ClInclude Include="Loan.h" />
     <ClInclude Include="ILoanCriteria.h" />
-    <ClInclude Include="LoanPage.h" />
     <ClInclude Include="LoanType.h" />
     <ClInclude Include="LoginPage.h" />
     <ClInclude Include="LogoutPage.h" />
@@ -117,7 +114,6 @@
     <ClInclude Include="SerialiazablGuid.h" />
     <ClInclude Include="SerializableVector.h" />
     <ClInclude Include="User.h" />
-    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

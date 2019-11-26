@@ -12,6 +12,14 @@ public:
 
 	GUID GetId() { return m_Id.AsGuid(); }
 	GUID GetCustomerId() { return m_CustomerId.AsGuid(); }
+	string GetTypeName() { return m_TypeName; }
+	double GetValue() { return m_Value; }
+	int GetDuration() { return m_Duration; }
+	string GetValueString();
+	string GetDurationString();
+	string GetSingleYearInterestString();
+	string GetTotalInterestString();
+	string GetTotalRepayableString();
 
 	//Loan cost functions
 	double GetInterestAsDecimalPercent();
@@ -20,7 +28,7 @@ public:
 	double GetTotalRepayable();
 
 	//Returns a new value, or a nullptr if the desired Duration is not valid for this loan type
-	static Loan* NewLoan(LoanType* pLoanType, int Duration, double Value);
+	static shared_ptr<Loan> NewLoan(LoanType* pLoanType, int Duration, double Value);
 
 	//From ISerializable
 	std::ostream& Serialize(std::ostream& out);

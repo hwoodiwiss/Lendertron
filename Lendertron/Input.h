@@ -8,13 +8,14 @@ using std::cout;
 using std::endl;
 using std::string;
 
-//Class of static utility functions
+//Class of static utility functions, Adapted from a library I previously wrote
 class Input
 {
 public:
 	//Gets a string input from the user
 	static std::string GetUserString();
 
+	//Returns a whitespace trimed copy of trimStr
 	static std::string Trim(std::string trimStr);
 
 	//Gets an integer input from the user

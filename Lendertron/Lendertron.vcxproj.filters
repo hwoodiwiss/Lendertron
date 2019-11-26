@@ -61,9 +61,6 @@
     <Filter Include="UI\Pages\UserPage">
       <UniqueIdentifier>{a53c4fd3-0762-49e9-88ae-8f93c19891b3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI\Pages\LoanPage">
-      <UniqueIdentifier>{85d92e1a-b7e5-4e22-a8df-399393fb707b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utils\Input">
       <UniqueIdentifier>{4a74a47f-0a10-44fa-89d4-0fd58b53a941}</UniqueIdentifier>
     </Filter>
@@ -100,9 +97,6 @@
     <ClCompile Include="Input.cpp">
       <Filter>Utils\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.cpp">
-      <Filter>Utils</Filter>
-    </ClCompile>
     <ClCompile Include="PageManager.cpp">
       <Filter>UI\MenuManager</Filter>
     </ClCompile>
@@ -120,9 +114,6 @@
     </ClCompile>
     <ClCompile Include="UserPage.cpp">
       <Filter>UI\Pages\UserPage</Filter>
-    </ClCompile>
-    <ClCompile Include="LoanPage.cpp">
-      <Filter>UI\Pages\LoanPage</Filter>
     </ClCompile>
     <ClCompile Include="Page.cpp">
       <Filter>UI\Pages</Filter>
@@ -152,9 +143,6 @@
     </ClInclude>
     <ClInclude Include="ILoanCriteria.h">
       <Filter>Data\LoanCriteria</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils.h">
-      <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="DataManager.h">
       <Filter>Data\DataManager</Filter>
@@ -189,9 +177,6 @@
     </ClInclude>
     <ClInclude Include="LogoutPage.h">
       <Filter>UI\Pages\LogoutPage</Filter>
-    </ClInclude>
-    <ClInclude Include="LoanPage.h">
-      <Filter>UI\Pages\LoanPage</Filter>
     </ClInclude>
     <ClInclude Include="UserPage.h">
       <Filter>UI\Pages\UserPage</Filter>

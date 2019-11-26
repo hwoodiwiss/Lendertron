@@ -46,6 +46,7 @@ string UserPage::Execute(string prevPage, shared_ptr<DataManager> appDataManager
 
 void UserPage::AddUser(shared_ptr<DataManager> appDataManager, shared_ptr<User> appUser)
 {
+	//Only allow admins to perform this function
 	if (appUser->GetAccessLevel() == AL_ADMIN)
 	{
 		string newUsername = "";
@@ -55,14 +56,18 @@ void UserPage::AddUser(shared_ptr<DataManager> appDataManager, shared_ptr<User> 
 
 		cout << "New User" << endl << endl;
 
+		//Uniquness validation loop
 		while (!isUnique)
 		{
+			//Username input validation loop
 			while (newUsername == "")
 			{
 				cout << "Please enter the new username:" << endl;
 				newUsername = Input::GetUserString();
 				newUsername = Input::Trim(newUsername);
 			}
+
+			//If no user is found with this username, isUnique is true
 			if (appDataManager->FindUser(newUsername) == nullptr)
 			{
 				isUnique = true;
@@ -73,6 +78,7 @@ void UserPage::AddUser(shared_ptr<DataManager> appDataManager, shared_ptr<User> 
 			}
 		}
 
+		//Password input validation loop
 		while (newPassword == "")
 		{
 			cout << "Please enter the new password (User will be prompted to change this on first login):" << endl;
@@ -80,6 +86,7 @@ void UserPage::AddUser(shared_ptr<DataManager> appDataManager, shared_ptr<User> 
 			newPassword = Input::Trim(newPassword);
 		}
 
+		//Access level validation loop
 		while (newAccessLevel < 1 || newAccessLevel > 2)
 		{
 			cout << "Please enter the desired access level for this user (User = 1, Admin = 2):" << endl;
@@ -89,6 +96,8 @@ void UserPage::AddUser(shared_ptr<DataManager> appDataManager, shared_ptr<User> 
 				cout << "Invalid value, please enter a value within the specified range." << endl;
 			}
 		}
+
+		//Create a new user and add it to the data manager in one line
 		appDataManager->AddUser(shared_ptr<User>(new User(newUsername, newPassword, true, (UserAccessLevel)newAccessLevel)));
 
 		cout << "New user created!" << endl;
@@ -119,7 +128,7 @@ void UserPage::ResetPassword(shared_ptr<DataManager> appDataManager, shared_ptr<
 		}
 	}
 
-	//Does not allow the password to be reset unless by an admin, or the selected user
+	//Does not allow the password to be reset unless by an admin, or if the selected user is the current user
 	if (appUser->GetAccessLevel() == AL_ADMIN || foundUser == appUser)
 	{
 		string newPassword = "";
@@ -144,7 +153,7 @@ void UserPage::ResetPassword(shared_ptr<DataManager> appDataManager, shared_ptr<
 	}
 	else
 	{
-		cout << "Yo do not have permission to update this users details!" << endl;
+		cout << "You do not have permission to update this users details!" << endl;
 	}
 }
 

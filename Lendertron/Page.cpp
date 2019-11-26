@@ -46,6 +46,7 @@ int Page::GetUserPageAction()
 	return UserOption;
 }
 
+
 void Page::DrawHeader()
 {
 	const static string ApplicationHeader =

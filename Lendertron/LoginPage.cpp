@@ -26,6 +26,7 @@ string LoginPage::Execute(string prevPage, shared_ptr<DataManager> appDataManage
 		if (foundUser != nullptr && foundUser->GetPassword() == Password)
 		{
 			cout << "Login successful!" << endl;
+			//If IsFirstLogin is true, make the user reset their password
 			if (foundUser->IsFirstLogin())
 			{
 				string newPassword = "";

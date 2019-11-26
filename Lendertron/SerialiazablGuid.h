@@ -19,11 +19,15 @@ public:
 	bool operator==(const GUID& rGuid);
 	friend bool operator==(const GUID& lGuid, const SerializableGuid& rSerGuid);
 
+	//Allows implicit assignment from GUID to SerializableGuid
 	SerializableGuid& operator=(const GUID& rGuid);
 
+	//Returns the internal GUID struct
 	GUID AsGuid() { return m_InternalGuid; }
+	//Returns a string representation of the GUID, with the option to exclude curly braces
 	std::string ToString(bool IncludeBraces = true);
 
+	//Implementation for ISerializable interface
 	std::ostream& Serialize(std::ostream& out);
 	std::istream& Deserialize(std::istream& in);
 
