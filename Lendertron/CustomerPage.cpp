@@ -51,8 +51,7 @@ string CustomerPage::Execute(string prevPage, shared_ptr<DataManager> appDataMan
 			break;
 		case 4:
 			userExit = true;
-			//Dispose the instance of the shared_ptr and explicitly sets it to nullptr
-			m_CurrCustomer.~shared_ptr();
+			//Set context customer to nullptr
 			m_CurrCustomer = nullptr;
 			break;
 		case 5:

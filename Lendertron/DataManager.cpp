@@ -160,7 +160,6 @@ void DataManager::AddUser(shared_ptr<User> pNewUser)
 	if (pNewUser != nullptr)
 		m_Users.push_back(pNewUser);
 
-	Update();
 }
 
 void DataManager::AddCustomer(shared_ptr<Customer> pNewCustomer)
@@ -168,7 +167,6 @@ void DataManager::AddCustomer(shared_ptr<Customer> pNewCustomer)
 	if (pNewCustomer != nullptr)
 		m_Customers.push_back(pNewCustomer);
 
-	Update();
 }
 
 void DataManager::AddLoan(shared_ptr<Loan> pNewLoan)
@@ -183,7 +181,6 @@ void DataManager::AddLoan(shared_ptr<Loan> pNewLoan)
 			LoanCustomer->AddLoan(pNewLoan->GetId());
 		}
 
-		Update();
 	}
 }
 

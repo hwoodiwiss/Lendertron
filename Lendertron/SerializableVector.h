@@ -26,7 +26,7 @@ public:
 
 	std::istream& Deserialize(std::istream& in)
 	{
-		size_t numElements;
+		size_t numElements = 0;
 		in.read(reinterpret_cast<char*>(&numElements), sizeof(size_t));
 		//Resize once to avoid reallocations at capacity boundaries
 		this->resize(numElements);
